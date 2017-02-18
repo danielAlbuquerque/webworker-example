@@ -1,0 +1,15 @@
+<script>
+
+if(window.Worker) {
+
+	var calcWorker = new Worker("worker.js");
+	var message = { values: {num1: 100, num2: 200} };
+	
+	calcWorker.postMessage(message);
+
+	calcWorker.onmessage = function(e) {
+		console.log(e.data);
+	}
+}
+
+</script>
